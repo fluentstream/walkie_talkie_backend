@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,5 +13,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "mediaserver": "^0.1.1"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
