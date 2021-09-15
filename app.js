@@ -65,5 +65,5 @@ app.use((err, res, next) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(process.env.NODE_ENV !== 'production' ? `Example app listening at http://localhost:${port}` : `https://HEROKU_URL_HERE`)
 })
