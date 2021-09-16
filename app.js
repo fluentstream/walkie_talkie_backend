@@ -38,6 +38,7 @@ app.post('/upload', (req, res) => {
       !body["recording"]){
         res.status(400);
         res.send('Uh oh, please send the headers we need');
+        return
   }
 
   let newTransmission = {
