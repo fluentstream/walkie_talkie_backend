@@ -19,38 +19,10 @@ app.get('/history', (req, res) => {
     }, 4000);
 })
 
-app.get('/transmission_observer', (req, res) => {
-  res.send(transmissions)
-})
-
 app.get('/recording', (req, res) => {
   res.writeHead(200, {'Content-Type': 'audio/mpeg'});
   let opStream = fileSystem.createReadStream('./sample_recording.mp3');
   opStream.pipe(res)
-})
-
-app.post('/upload', (req, res) => {
-  const body = req.body
-
-  if (!body["datetime"] || 
-      !body["username_to"] ||
-      !body["username_from"] ||
-      !body["recording"]){
-        res.status(400);
-        res.send('Uh oh, please send the headers we need');
-        return
-  }
-
-  let newTransmission = {
-    "datetime"      :     `${body.datetime}`,
-    "username_to"   :     `${body.username_to}`,
-    "username_from" :     `${body.username_from}`,
-    "recording"     :     `${body.recording}`
-  }
-
-  transmissions.push(newTransmission)
-  res.status(200).send()
-  
 })
 
 // Not found error handler
