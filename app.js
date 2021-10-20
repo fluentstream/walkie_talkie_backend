@@ -19,7 +19,7 @@ app.get('/history', (req, res) => {
     }, 4000);
 })
 
-app.get('/recording', (req, res) => {
+app.get('/recordings/example_transmission.mp3', (req, res) => {
   res.writeHead(200, {'Content-Type': 'audio/mpeg'});
   let opStream = fileSystem.createReadStream('./sample_recording.mp3');
   opStream.pipe(res)
